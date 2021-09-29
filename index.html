@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div in center</title>
+    <style>
+        :root {
+            --bg-clr: blue;
+            --bg-div-clr: rgb(218, 124, 70);
+        }
+
+        * {
+            /* background-color: blueviolet; */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parent-div {
+            background-color: var(--bg-clr);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            /* vertically center */
+            align-items: center;
+            /* horizontally center */
+            justify-content: center;
+        }
+
+        .child-div {
+            background-color: var(--bg-div-clr);
+            width: 60vw;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent-div">
+        <div class="child-div">
+            <h1>Making div in center</h1>
+        </div>
+    </div>
+    <script>
+
+        let userLoginObj = { "firstName": "nikhil", "lastName": "Rajbhar", "email": "nikhil@gmail.com", "profileImage": "https://storage.googleapis.com/yamdevappbucket/profile/0ab643c0-e973-11eb-a326-db0e3f0243c9.png" }
+        let userArray =[];
+        userArray = [{ "firstName": "nikhil", "lastName": "Rajbhar", "email": "nikhil@gmail.com", "profileImage": "https://storage.googleapis.com/yamdevappbucket/profile/0ab643c0-e973-11eb-a326-db0e3f0243c9.png" }, { "firstName": "Manoj", "lastName": "Rajbhar", "email": "manoj@gmail.com", "profileImage": "https://storage.googleapis.com/yamdevappbucket/profile/0ab643c0-e973-11eb-a326-db0e3f0243c9.png" }, { "firstName": "shobha", "lastName": "Rajbhar", "email": "shobha@gmail.com", "profileImage": "https://storage.googleapis.com/yamdevappbucket/profile/0ab643c0-e973-11eb-a326-db0e3f0243c9.png" }]
+        console.log(userLoginObj);
+        userArray.push(userLoginObj)
+        console.log('userArray----',userArray);
+
+        let newUserArray = userArray.filter((x, index, self) =>
+            index === self.findIndex((t) => (
+                t.email === x.email
+            ))
+        )
+        console.log('newUserArray', newUserArray);
+        localStorage.setItem('userLoginObj', JSON.stringify(newUserArray));
+        // localStorage.removeItem('userLoginObj',0)
+        // let newUserArray = userArray.filter(x => {
+        //     return x.email != userLoginObj.email
+        // })
+    </script>
+</body>
+
+</html>
